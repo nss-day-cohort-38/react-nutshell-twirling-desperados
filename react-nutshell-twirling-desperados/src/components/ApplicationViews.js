@@ -41,7 +41,7 @@ return (
         <Route path="/addnews" render={props => {
             return <AddNewsForm {...props} />
         }} />
-        <Route path="/editnews" render={props => {
+         <Route path="/:newsId(\d+)/editnews" render={props => {
             return <EditNewsForm {...props} />
         }} />
         <Route exact path="/events" render={props => {

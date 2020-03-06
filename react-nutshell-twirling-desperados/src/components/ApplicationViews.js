@@ -18,12 +18,15 @@ import AddFriendForm from "./friends/AddFriendForm";
 import EditFriendForm from "./friends/EditFriendForm";
 
 const ApplicationViews = props => {
+  const currentUser = props.currentUser;
+  const setAsUser = props.setAsUser;
+
   return (
     <React.Fragment>
       <Route
         path="/login"
         render={props => {
-          return <Login {...props} />;
+          return <Login setAsUser={setAsUser} {...props} />;
         }}
       />
       <Route

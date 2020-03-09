@@ -15,11 +15,6 @@ const MessageList = props => {
     getMessages();
   }, []);
 
-  const deleteMessage = id => {
-      MessageManager.delete(id).then(() => 
-      MessageManager.getAllMessages().then(setMessages))
-  }
-
   return (
     <>
       <section className="section-content">
@@ -34,17 +29,12 @@ const MessageList = props => {
         </button>
       </section>
       <div className="container-cards">
-          {messages.map(message => (
-              <MessageCard
-                key={message.id}
-                message={message}
-                deleteMessage={deleteMessage}
-                {...props}
-                />
-          ))}
+        {messages.map(message => (
+          <MessageCard key={message.id} message={message} {...props} />
+        ))}
       </div>
     </>
   );
 };
 
-export default MessageList
+export default MessageList;

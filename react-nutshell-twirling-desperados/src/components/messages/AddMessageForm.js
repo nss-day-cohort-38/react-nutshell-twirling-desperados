@@ -20,7 +20,7 @@ const AddMessageForm = props => {
       window.alert("Please write a message");
     } else {
       setIsLoading(true);
-      message.userId = userCred;
+      message.userId = parseInt(userCred);
       MessageManager.post(message).then(() => props.history.push("/messages"));
     }
   };

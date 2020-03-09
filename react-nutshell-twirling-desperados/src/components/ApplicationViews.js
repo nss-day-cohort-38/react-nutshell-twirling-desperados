@@ -36,7 +36,7 @@ return (
             return <EditTaskForm {...props} />
         }} />
         <Route exact path="/news" render={props => {
-            return <NewsList {...props} />
+            return <NewsList currentUser={currentUser} {...props} />
         }} />
         <Route path="/addnews" render={props => {
             return <AddNewsForm {...props} />

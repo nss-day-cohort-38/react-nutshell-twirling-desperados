@@ -1,4 +1,4 @@
-const remoteURL = "http://localhost:8088”
+const remoteURL = "http://localhost:8088"
 
 export default {
     getNewsById(id) {
@@ -11,5 +11,18 @@ export default {
         return fetch(`${remoteURL}/news/${id}`, {
             method: "DELETE"
         }).then(resp => resp.json())
+    },
+    getAllNewsByUser() {
+        return fetch(`${remoteURL}/news/?_expand=user`)
+        .then(resp => resp.json())
+    },
+    post(newArticle) {
+        return fetch(`${remoteURL}/news`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newArticle)
+        }).then(resp => resp.json)
     }
 }   

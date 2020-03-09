@@ -2,15 +2,14 @@ import React, { useState, useEffect } from "react";
 //import the components we will need
 import EventCard from "./EventCard";
 import EventManager from "../../modules/EventManager";
+import "./Events.css";
 
 const EventsList = props => {
   const [events, setEvents] = useState([]);
 
   const deleteEvent = id => {
-    EventManager.delete(id).then(() => EventManager.getAll().then(setEvents));
+    EventManager.delete(id).then(() => getUserEvents());
   };
-
-  // got the events from the API on the component's first render
 
   const userNow = JSON.parse(sessionStorage.getItem("userCredentials"));
 
@@ -19,10 +18,10 @@ const EventsList = props => {
       const userEvents = eventsFromDatabase.filter(
         event => event.user.id === userNow
       );
-      const sortedEventsEvents = userEvents.sort(function(a, b) {
+      const sortedEvents = userEvents.sort(function(a, b) {
         return new Date(b.date) - new Date(a.date);
       });
-      setEvents(sortedEventsEvents.reverse());
+      setEvents(sortedEvents.reverse());
     });
   };
 

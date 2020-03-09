@@ -26,7 +26,7 @@ const AddEventForm = props => {
       event.name === "" ||
       event.date === "" ||
       event.location === "" ||
-      event.userId === ""
+      event.userId === null
     ) {
       window.alert("Please login or fill out all the fields to continue");
     } else {

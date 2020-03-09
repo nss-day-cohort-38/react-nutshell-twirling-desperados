@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import TaskManager from '../../modules/TaskManger';
 
+const userCred = sessionStorage.getItem("userCredentials")
+
 const AddTaskForm = (props) => {
-    const [task, setTask] = useState({ task: "", completionDate: "" });
+    const [task, setTask] = useState({ userId: userCred, task: "", completionDate: "" });
     const [isLoading, setIsLoading] = useState(false)
 
     const handleFieldChange = evt => {
@@ -11,14 +13,16 @@ const AddTaskForm = (props) => {
         setTask(stateToChange);
     };
     const constructNewTask = evt => {
+        const userCred = sessionStorage.getItem("userCredentials")
         evt.preventDefault();
-        if (task.task == "" || task.completionDate == "") {
-            window.alert("Please enter task and expected completion date");
+        if (task.task == "" || task.completionDate == "" || task.userId == null) {
+            window.alert("Please login to enter task and expected completion date");
         } else {
             setIsLoading(true);
+            task.userId = userCred;
             TaskManager.post(task)
-                .then(props.history.push("/tasks"));
-        };
+                .then(()=> props.history.push("/tasks"));
+        }};
         return (
             <>
                 <form>
@@ -30,7 +34,7 @@ const AddTaskForm = (props) => {
                                 id="task"
                                 placeholder="taskName" />
                             <label htmlFor="task">Task</label>
-                            <input type="text"
+                            <input type="date"
                                 required
                                 onChange={handleFieldChange}
                                 id="completionDate"
@@ -46,6 +50,5 @@ const AddTaskForm = (props) => {
                 </form>
             </>
         );
-    }
-};
+    };
 export default AddTaskForm

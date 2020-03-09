@@ -22,7 +22,7 @@ const TaskList = (props) => {
             <section className="task-content">
                 <button type="button"
                     className="btn"
-                    onClick={() => { props.history.push("/task/addtask") }}>
+                    onClick={() => { props.history.push("/tasks/addtask") }}>
                     New Task
   </button>
             </section>

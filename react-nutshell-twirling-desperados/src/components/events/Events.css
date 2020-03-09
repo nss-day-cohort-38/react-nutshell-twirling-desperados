@@ -4,6 +4,6 @@
 
 .container-cards div:first-of-type {
   background-color: lightblue;
-  font-size: 3em;
+  font-size: 2em;
   font-weight: bold;
 }

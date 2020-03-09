@@ -59,7 +59,7 @@ return (
         <Route path="/addmessage" render={props => {
             return <AddMessageForm {...props} />
         }} />
-        <Route path="/editmessage" render={props => {
+        <Route path="/message/:messageId(\d+)/edit" render={props => {
             return <EditMessageForm {...props} />
         }} />
         <Route exact path="/friends" render={props => {

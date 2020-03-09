@@ -100,7 +100,7 @@ const ApplicationViews = props => {
         }}
       />
       <Route
-        path="/editmessage"
+        path="/message/:messageId(\d+)/edit"
         render={props => {
           return <EditMessageForm {...props} />;
         }}

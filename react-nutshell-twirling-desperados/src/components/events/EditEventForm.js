@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import EventManager from "../../modules/EventManager";
 
+const userNow = JSON.parse(sessionStorage.getItem("userCredentials"));
+
 const EditEventForm = props => {
   const [event, setEvent] = useState({
     name: "",
     date: "",
-    location: ""
+    location: "",
+    userId: userNow
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -20,11 +23,13 @@ const EditEventForm = props => {
     setIsLoading(true);
 
     // This is an edit, so we need the id
+
     const editedEvent = {
       id: props.match.params.eventId,
       name: event.name,
       date: event.date,
-      location: event.location
+      location: event.location,
+      userId: userNow
     };
 
     EventManager.update(editedEvent).then(() => props.history.push("/events"));
@@ -55,7 +60,7 @@ const EditEventForm = props => {
             <label htmlFor="date">Date: </label>
 
             <input
-              type="text"
+              type="date"
               required
               className="form-control"
               onChange={handleFieldChange}

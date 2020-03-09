@@ -29,5 +29,11 @@ export default {
       },
       body: JSON.stringify(editedEvent)
     }).then(data => data.json());
+  },
+
+  getAllEventsByUser() {
+    return fetch(`${remoteURL}/events?_expand=user`).then(result =>
+      result.json()
+    );
   }
 };

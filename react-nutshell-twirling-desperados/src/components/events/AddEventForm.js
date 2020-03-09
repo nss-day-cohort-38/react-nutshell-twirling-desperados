@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import EventManager from "../../modules/EventManager";
 
+const userNow = JSON.parse(sessionStorage.getItem("userCredentials"));
+
 const AddEventForm = props => {
-  const [event, setEvent] = useState({ name: "", date: "", location: "" });
+  const [event, setEvent] = useState({
+    name: "",
+    date: "",
+    location: "",
+    userId: userNow
+  });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
@@ -15,8 +22,13 @@ const AddEventForm = props => {
    */
   const constructNewEvent = evt => {
     evt.preventDefault();
-    if (event.name === "" || event.date === "" || event.location === "") {
-      window.alert("Please fill out all the fields to continue");
+    if (
+      event.name === "" ||
+      event.date === "" ||
+      event.location === "" ||
+      event.userId === ""
+    ) {
+      window.alert("Please login or fill out all the fields to continue");
     } else {
       setIsLoading(true);
       // Create the event and redirect user to event list
@@ -40,7 +52,7 @@ const AddEventForm = props => {
             <label htmlFor="date">Date: </label>
 
             <input
-              type="text"
+              type="date"
               required
               onChange={handleFieldChange}
               id="date"

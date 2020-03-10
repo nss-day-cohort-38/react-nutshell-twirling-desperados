@@ -25,7 +25,7 @@ const Login = props => {
 
       if (user !== undefined) {
         props.setAsUser(user.id);
-        // props.history.push("/tasks");
+        props.history.push("/");
       } else {
         alert("Invalid information! Try again or register an account");
       }

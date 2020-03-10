@@ -16,6 +16,7 @@ import EditMessageForm from "./messages/EditMessageForm";
 import FriendsList from "./friends/FriendsList";
 import AddFriendForm from "./friends/AddFriendForm";
 import EditFriendForm from "./friends/EditFriendForm";
+import NewUserForm from "./auth/NewUserForm";
 
 const ApplicationViews = props => {
   const currentUser = props.currentUser;
@@ -24,9 +25,17 @@ const ApplicationViews = props => {
   return (
     <React.Fragment>
       <Route
+        exact
         path="/login"
         render={props => {
           return <Login setAsUser={setAsUser} {...props} />;
+        }}
+      />
+      <Route
+        exact
+        path="/newuser"
+        render={props => {
+          return <NewUserForm setAsUser={setAsUser} {...props} />;
         }}
       />
       <Route
@@ -110,7 +119,6 @@ const ApplicationViews = props => {
           }
         }}
       />
-
       <Route
         exact
         path="/messages"

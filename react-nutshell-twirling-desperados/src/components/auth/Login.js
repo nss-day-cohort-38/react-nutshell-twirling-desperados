@@ -32,33 +32,43 @@ const Login = props => {
     });
   };
 
-  return (
-    <form onSubmit={handleLogin}>
-      <fieldset>
-        <h3>Log into Nutshell</h3>
-        <div className="formgrid">
-          <input
-            onChange={handleFieldChange}
-            type="email"
-            id="email"
-            placeholder="Email address"
-            required=""
-            autoFocus=""
-          />
-          <label htmlFor="inputEmail">Email</label>
+  const newUserRedirect = () => {
 
-          <input
-            onChange={handleFieldChange}
-            type="password"
-            id="password"
-            placeholder="Password"
-            required=""
-          />
-          <label htmlFor="inputPassword">Password</label>
-        </div>
-        <button type="submit">Log in</button>
-      </fieldset>
-    </form>
+    props.history.push("/newuser")
+  }
+
+  return (
+
+    <>
+      <form onSubmit={handleLogin}>
+        <fieldset>
+          <h3>Log into Nutshell</h3>
+          <div className="formgrid">
+            <input
+              onChange={handleFieldChange}
+              type="email"
+              id="email"
+              placeholder="Email address"
+              required=""
+              autoFocus=""
+            />
+            <label htmlFor="inputEmail">Email</label>
+
+            <input
+              onChange={handleFieldChange}
+              type="password"
+              id="password"
+              placeholder="Password"
+              required=""
+            />
+            <label htmlFor="inputPassword">Password</label>
+          </div>
+          <button type="submit">Log in</button>
+
+          <button onClick={newUserRedirect}>Add a new user</button>
+        </fieldset>
+      </form>
+    </>
   );
 };
 

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const EventCard = props => {
   return (
-    <div className="card">
-      <section className="card-content">
+    <div className="cards">
+      <section className="cards-content">
         <picture></picture>
         <h3>
           Name: <span className="">{props.event.name}</span>

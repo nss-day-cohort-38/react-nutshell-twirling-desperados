@@ -123,7 +123,7 @@ const ApplicationViews = props => {
         exact
         path="/messages"
         render={props => {
-          return <MessagesList {...props} />;
+          return <MessagesList currentUser={currentUser} {...props} />;
         }}
       />
       <Route

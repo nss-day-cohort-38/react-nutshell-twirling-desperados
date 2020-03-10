@@ -27,7 +27,7 @@ const Login = props => {
         props.setAsUser(user.id);
         // props.history.push("/tasks");
       } else {
-        alert("Invalid information! Try again or register an account")
+        alert("Invalid information! Try again or register an account");
       }
     });
   };

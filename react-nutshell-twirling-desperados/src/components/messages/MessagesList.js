@@ -18,15 +18,17 @@ const MessageList = props => {
   return (
     <>
       <section className="section-content">
-        <button
-          type="button"
-          className="btn"
-          onClick={() => {
-            props.history.push("/addmessage");
-          }}
-        >
-          Write New Message
-        </button>
+        {props.currentUser ? (
+          <button
+            type="button"
+            className="btn"
+            onClick={() => {
+              props.history.push("/addmessage");
+            }}
+          >
+            Write New Message
+          </button>
+        ) : null}
       </section>
       <div className="container-cards">
         {messages.map(message => (

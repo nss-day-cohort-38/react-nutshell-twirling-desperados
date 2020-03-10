@@ -5,7 +5,10 @@ import TaskManager from '../../modules/TaskManger';
 const TaskList = (props) => {
     const [tasks, setTasks] = useState([]);
     const userNow =JSON.parse(sessionStorage.getItem("userCredentials"));
-
+    const deleteTask = (id) => {
+        TaskManager.delete(id)
+            .then(() => getTasks())
+    }
     const getTasks = () => {
         return TaskManager.getAllTasksByUser().then(tasksFromAPI => {
             const userTasks = tasksFromAPI.filter(
@@ -17,10 +20,7 @@ const TaskList = (props) => {
     useEffect(() => {
         getTasks();
     }, []);
-    const deleteTask = (id) => {
-        TaskManager.delete(id)
-            .then(() => TaskManager.getTasks())
-    }
+    
     return (
         <React.Fragment>
             <section className="task-content">

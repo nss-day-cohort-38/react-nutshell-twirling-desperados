@@ -1,8 +1,8 @@
-.card-content {
+.cards-content {
   border: 1px solid black;
 }
 
-.container-cards div:first-of-type {
+.containers-cards div:first-of-type {
   background-color: lightblue;
   font-size: 2em;
   font-weight: bold;

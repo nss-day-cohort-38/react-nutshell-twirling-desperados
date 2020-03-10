@@ -36,13 +36,25 @@ return (
             return <EditTaskForm {...props} />
         }} />
         <Route exact path="/news" render={props => {
-            return <NewsList currentUser={currentUser} {...props} />
+            if (currentUser) {
+                return <NewsList currentUser={currentUser} {...props} />
+            } else {
+                return <Redirect to="/login" />
+            }
         }} />
         <Route path="/addnews" render={props => {
-            return <AddNewsForm {...props} />
+            if (currentUser) {
+                return <AddNewsForm {...props} />
+            } else {
+                return <Redirect to="/login" />
+            }
         }} />
          <Route path="/:newsId(\d+)/editnews" render={props => {
-            return <EditNewsForm {...props} />
+            if (currentUser) {
+                return <EditNewsForm {...props} />
+            } else {
+                return <Redirect to="/login" />
+            }
         }} />
         <Route exact path="/events" render={props => {
             return <EventsList {...props} />

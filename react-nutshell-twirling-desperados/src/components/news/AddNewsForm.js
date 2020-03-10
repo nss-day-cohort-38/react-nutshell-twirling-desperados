@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import NewsManager from "../../modules/NewsManager"
 import "./AddNewsForm.css"
-import LoginManager from "../../modules/LoginManager"
-import Login from "../auth/Login"
 
 
 
@@ -40,7 +38,7 @@ const AddNewsForm = props => {
         <>
             <form>
                 <fieldset>
-                    <div>
+                    <div className="newsForm">
                         <input type="text"
                             required
                             onChange={handleFieldChange}

@@ -24,5 +24,14 @@ export default {
             },
             body: JSON.stringify(newArticle)
         }).then(resp => resp.json)
+    },
+    update(editedNewsArticle) {
+        return fetch(`${remoteURL}/news/${editedNewsArticle.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editedNewsArticle)
+        }).then(resp => resp.json());
     }
 }   

@@ -27,7 +27,7 @@ useEffect(()=>{
     TaskManger.get(props.match.params.taskId)
     .then(task =>{
         setTask(task);
-        setIsLoading(true)
+        setIsLoading(false)
     });
 },[props.match.params.taskId]);
 

@@ -32,6 +32,7 @@ const TaskList = (props) => {
                         key={task.id}
                         task={task}
                         deleteTask={deleteTask}
+                        getTasks={getTasks}
                         {...props} />)}
             </div>
         </React.Fragment>

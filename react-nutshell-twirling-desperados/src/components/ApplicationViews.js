@@ -29,10 +29,10 @@ const ApplicationViews = props => {
             <Route exact path="/tasks" render={props => {
                 return <TaskList {...props} />
             }} />
-            <Route path="tasks/addtask" render={props => {
+            <Route path="/tasks/addtask" render={props => {
                 return <AddTaskForm {...props} />
             }} />
-            <Route path="tasks/edittask" render={props => {
+            <Route path="/task/:taskId(\d+)/edit" render={props => {
                 return <EditTaskForm {...props} />
             }} />
             <Route exact path="/news" render={props => {

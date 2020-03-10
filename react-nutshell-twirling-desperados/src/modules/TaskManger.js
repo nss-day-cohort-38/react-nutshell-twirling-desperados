@@ -29,5 +29,16 @@ export default{
           },
           body: JSON.stringify(editedTask)
         }).then(data=> data.json());
-      }
+      },
+    completedTask(editedTask){
+        return fetch (`${baseURL}/tasks/${editedTask.id}`,{
+            method:"PATCH",
+            body: JSON.stringify({
+                isComplete: true 
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            },
+        }) .then(resp => resp.json());
+    }
 }

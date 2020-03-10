@@ -33,7 +33,6 @@ const Login = props => {
   };
 
   const newUserRedirect = () => {
-
     props.history.push("/newuser")
   }
 

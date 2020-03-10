@@ -40,5 +40,8 @@ export default{
                 "Content-Type": "application/json"
             },
         }) .then(resp => resp.json());
+    },
+    getAllTasksByUser() {
+        return fetch (`${baseURL}/tasks?_expand=user`).then(resp => resp.json());
     }
 }

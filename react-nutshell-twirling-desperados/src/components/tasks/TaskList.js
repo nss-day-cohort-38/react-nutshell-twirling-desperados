@@ -4,10 +4,14 @@ import TaskManager from '../../modules/TaskManger';
 
 const TaskList = (props) => {
     const [tasks, setTasks] = useState([]);
+    const userNow =JSON.parse(sessionStorage.getItem("userCredentials"));
 
     const getTasks = () => {
-        return TaskManager.getAll().then(tasksFromAPI => {
-            setTasks(tasksFromAPI)
+        return TaskManager.getAllTasksByUser().then(tasksFromAPI => {
+            const userTasks = tasksFromAPI.filter(
+                task =>task.user.id === userNow
+            );
+            setTasks(userTasks)
         });
     };
     useEffect(() => {

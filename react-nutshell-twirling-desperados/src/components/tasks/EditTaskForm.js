@@ -1,8 +1,10 @@
-import React , {useState, useEffect} from "react"
+import React , {useState, useEffect, useImperativeHandle} from "react"
 import TaskManger from "../../modules/TaskManger"
 
+const userNow = parseInt(sessionStorage.getItem("userCredentials"));
+
 const EditTaskForm = (props) => {
-    const [task, setTask] = useState ({task:"", completionDate: ""});
+    const [task, setTask] = useState ({task:"", completionDate: "", isComplete: false});
     const [isLoading, setIsLoading] = useState (false);
 
 const handleFieldChange = evt => {
@@ -17,7 +19,8 @@ setIsLoading(true);
 const editedTask = {
     id :props.match.params.taskId,
     task: task.task,
-    completionDate: task.completionDate
+    completionDate: task.completionDate,
+    userId: userNow
 };
 TaskManger.update(editedTask)
 .then(() =>props.history.push("/tasks"));

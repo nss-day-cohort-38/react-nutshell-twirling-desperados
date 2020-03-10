@@ -45,7 +45,7 @@ const EventsList = props => {
           Admit Event
         </button>
       </section>
-      <div className="container-cards">
+      <div className="containers-cards">
         {events.map(event => (
           <EventCard
             key={event.id}

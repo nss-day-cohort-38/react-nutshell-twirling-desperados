@@ -19,7 +19,7 @@ const TaskList = (props) => {
     }, []);
     const deleteTask = (id) => {
         TaskManager.delete(id)
-            .then(() => TaskManager.getAll().then(setTasks))
+            .then(() => TaskManager.getTasks())
     }
     return (
         <React.Fragment>

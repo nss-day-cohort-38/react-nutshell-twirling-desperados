@@ -26,7 +26,11 @@ const NewUserForm = props => {
       if (filteredUsers.length !== 0) {
         window.alert("This is already a registered user!");
       } else {
-        if (newUserInfo.username === "" || newUserInfo.email === "" || newUserInfo.password === "") {
+        if (
+          newUserInfo.username === "" ||
+          newUserInfo.email === "" ||
+          newUserInfo.password === ""
+        ) {
           window.alert("You must have a valid email and password! No blanks!");
         } else {
           LoginManager.post(newUserInfo).then(() => {
@@ -51,6 +55,7 @@ const NewUserForm = props => {
       <fieldset>
         <h3>Add a New User</h3>
         <div className="formgrid">
+          <label htmlFor="inputUserName">Username: </label>
           <input
             onChange={handleFieldChange}
             type="text"
@@ -58,7 +63,7 @@ const NewUserForm = props => {
             required=""
             autoFocus=""
           />
-          <label htmlFor="inputUserName">Username</label>
+          <label htmlFor="inputEmail">Email: </label>
           <input
             onChange={handleFieldChange}
             type="email"
@@ -66,15 +71,13 @@ const NewUserForm = props => {
             required=""
             autoFocus=""
           />
-          <label htmlFor="inputEmail">Email</label>
-
+          <label htmlFor="inputPassword">Password: </label>
           <input
             onChange={handleFieldChange}
             type="password"
             id="password"
             required=""
           />
-          <label htmlFor="inputPassword">Password</label>
         </div>
         <button disabled={isAvailable} type="submit">
           Add User

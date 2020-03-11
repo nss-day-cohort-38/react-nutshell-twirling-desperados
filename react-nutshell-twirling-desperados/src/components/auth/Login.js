@@ -33,16 +33,16 @@ const Login = props => {
   };
 
   const newUserRedirect = () => {
-    props.history.push("/newuser")
-  }
+    props.history.push("/newuser");
+  };
 
   return (
-
     <>
       <form onSubmit={handleLogin}>
         <fieldset>
           <h3>Log into Nutshell</h3>
           <div className="formgrid">
+            <label htmlFor="inputEmail">Email: </label>
             <input
               onChange={handleFieldChange}
               type="email"
@@ -51,8 +51,8 @@ const Login = props => {
               required=""
               autoFocus=""
             />
-            <label htmlFor="inputEmail">Email</label>
 
+            <label htmlFor="inputPassword">Password: </label>
             <input
               onChange={handleFieldChange}
               type="password"
@@ -60,7 +60,6 @@ const Login = props => {
               placeholder="Password"
               required=""
             />
-            <label htmlFor="inputPassword">Password</label>
           </div>
           <button type="submit">Log in</button>
 

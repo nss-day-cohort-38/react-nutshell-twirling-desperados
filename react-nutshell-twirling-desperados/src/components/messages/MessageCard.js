@@ -18,7 +18,7 @@ const MessageCard = props => {
         <h2>
           <span className="card-message">{props.message.message}</span>
         </h2>
-        <p>{props.message.user.username}</p>
+        <p> - {props.message.user.username}</p>
       </div>
       {conditionalEditPermission(props.message) ?
       <button type="button"

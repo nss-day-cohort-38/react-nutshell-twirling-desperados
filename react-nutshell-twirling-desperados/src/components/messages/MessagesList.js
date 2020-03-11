@@ -28,7 +28,7 @@ const MessageList = props => {
           >
             Write New Message
           </button>
-        ) : null}
+        ) : <p><em>You must log in to write a new message</em></p>}
       </section>
       <div className="container-cards">
         {messages.map(message => (

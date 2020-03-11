@@ -31,13 +31,14 @@ const AddMessageForm = props => {
         <fieldset>
           <div className="formgrid">
             <label htmlFor="message">Message: </label>
-            <input
-              type="text"
+            <textarea
               required
               onChange={handleFieldChange}
               id="message"
+              rows="1"
+              cols="50"
               placeholder="Type message here..."
-            />
+            ></textarea>
           </div>
           <div>
             <button

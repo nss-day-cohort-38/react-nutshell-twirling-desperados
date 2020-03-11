@@ -39,15 +39,17 @@ const EditMessageForm = props => {
         <fieldset>
           <div className="formgrid">
             <label htmlFor="Message">Message: </label>
-            <input
-              type="text"
+            <textarea
               required
               className="form-control"
               onChange={handleFieldChange}
               id="message"
+              rows="1"
+              cols="50"
               value={message.message}
             />
           </div>
+          <p></p>
           <div>
             <button
               type="button"

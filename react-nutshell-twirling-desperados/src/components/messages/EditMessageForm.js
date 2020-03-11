@@ -34,29 +34,34 @@ const EditMessageForm = props => {
   }, []);
 
   return (
-      <>
+    <>
       <form>
         <fieldset>
-            <div className="formgrid">
-                <input
-                    type="text"
-                    required
-                    className="form-control"
-                    onChange={handleFieldChange}
-                    id="message"
-                    value={message.message}
-                    />
-                    <label htmlFor="message">Message</label>
-            </div>
-            <div>
-                <button type="button" disabled={isLoading}
-                onClick={updateExistingMessage}
-                className="btn btn-primary">Submit</button>
-            </div>
+          <div className="formgrid">
+            <label htmlFor="Message">Message: </label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={handleFieldChange}
+              id="message"
+              value={message.message}
+            />
+          </div>
+          <div>
+            <button
+              type="button"
+              disabled={isLoading}
+              onClick={updateExistingMessage}
+              className="btn btn-primary"
+            >
+              Submit
+            </button>
+          </div>
         </fieldset>
       </form>
-      </>
-  )
+    </>
+  );
 };
 
 export default EditMessageForm;

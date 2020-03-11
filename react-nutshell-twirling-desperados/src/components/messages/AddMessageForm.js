@@ -30,6 +30,7 @@ const AddMessageForm = props => {
       <form>
         <fieldset>
           <div className="formgrid">
+            <label htmlFor="message">Message: </label>
             <input
               type="text"
               required
@@ -37,7 +38,6 @@ const AddMessageForm = props => {
               id="message"
               placeholder="Type message here..."
             />
-            <label htmlFor="message">Message</label>
           </div>
           <div>
             <button

@@ -38,24 +38,29 @@ const ApplicationViews = props => {
           return <NewUserForm setAsUser={setAsUser} {...props} />;
         }}
       />
-      <Route
-        exact
-        path="/tasks"
-        render={props => {
-          return <TaskList {...props} />;
-        }}
+      <Route exact path="/tasks" render={props => {
+        if (currentUser) {
+          return <TaskList currentUser={currentUser} {...props} />;
+        } else {
+          return <Redirect to="/login" />;
+        }
+      }}
       />
-      <Route
-        path="/addtask"
-        render={props => {
+      <Route path="/tasks/addtask" render={props => {
+        if (currentUser) {
           return <AddTaskForm {...props} />;
-        }}
+        } else {
+          return <Redirect to="/login" />;
+        }
+      }}
       />
-      <Route
-        path="/edittask"
-        render={props => {
+      <Route path="/task/:taskId(\d+)/edit" render={props => {
+        if (currentUser) {
           return <EditTaskForm {...props} />;
-        }}
+        } else {
+          return <Redirect to="/login" />;
+        }
+      }}
       />
       <Route
         exact

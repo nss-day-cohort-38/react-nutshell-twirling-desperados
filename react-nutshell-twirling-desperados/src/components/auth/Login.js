@@ -25,7 +25,7 @@ const Login = props => {
 
       if (user !== undefined) {
         props.setAsUser(user.id);
-        props.history.push("/");
+        props.history.push("/messages");
       } else {
         alert("Invalid information! Try again or register an account");
       }
